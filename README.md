@@ -4,13 +4,9 @@ A production-ready agentic SaaS template where your customers sign up, connect t
 
 ## Why ChatBotKit?
 
-ChatBotKit provides the AI infrastructure so you can focus on building your product. This template leverages:
+Building an AI-powered product typically means sourcing models, a conversation layer, background processing, storage, a tested abilities catalogue, authentication, security, monitoring, and more from separate systems. The cost adds up fast - not just in money, but in engineering time.
 
-- **Managed bots** with backstories, models, skills, and datasets
-- **Contact system** that tracks each customer as a unique contact
-- **Secret management** for automatic integration discovery and OAuth flows
-- **Conversation persistence** with full message history
-- **Streaming responses** with server-side state management
+ChatBotKit brings all of this into one platform. This template gets you started with a working SaaS app that connects to a single API for managed bots, conversation persistence, secret management, streaming, and more - so you can focus on your product.
 
 ## Features
 

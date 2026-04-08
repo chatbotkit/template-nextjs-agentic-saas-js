@@ -2,6 +2,8 @@
 
 A production-ready agentic SaaS template where your customers sign up, connect their integrations, and an AI agent works for them continuously. Built with Next.js, ChatBotKit SDK, next-auth, Stripe, and shadcn/ui.
 
+<img width="30%" src="https://github.com/user-attachments/assets/86a94767-ec4b-4388-b49e-a894af4045a9" /> <img width="30%" src="https://github.com/user-attachments/assets/f5017408-4039-4f05-a996-20b159b84e50" /> <img width="30%" src="https://github.com/user-attachments/assets/080ee7bd-f858-4a74-8786-5e7bdcaa8939" />
+
 > **Note:** This template is deliberately bare-bones. It provides the minimal structure and wiring needed to get a working app, intentionally leaving styling, layout, and architectural choices open so you can build on top without fighting existing opinions.
 
 ## Why ChatBotKit?

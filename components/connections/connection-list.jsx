@@ -38,10 +38,12 @@ export default function ConnectionList({ connections: initialConnections }) {
   // Listen for OAuth callback messages from popup windows
   useEffect(() => {
     function handleMessage(event) {
-      if (event.data?.type === 'oauth' && event.data?.secretId) {
+      const secretId = event.data?.params?.secretId
+
+      if (event.data?.type === 'oauth' && secretId) {
         setConnections((prev) =>
           prev.map((conn) =>
-            conn.id === event.data.secretId
+            conn.id === secretId
               ? { ...conn, status: 'authenticated', authUrl: null }
               : conn
           )
@@ -55,7 +57,7 @@ export default function ConnectionList({ connections: initialConnections }) {
 
   const handleAuthenticate = useCallback((authUrl) => {
     if (authUrl) {
-      window.open(authUrl, '_blank')
+      window.open(authUrl, '_blank', 'width=600,height=700')
     }
   }, [])
 
@@ -152,7 +154,9 @@ export default function ConnectionList({ connections: initialConnections }) {
                         disabled={revokingId === connection.id}
                         onClick={() => setConfirmRevokeId(connection.id)}
                       >
-                        {revokingId === connection.id ? 'Revoking...' : 'Revoke'}
+                        {revokingId === connection.id
+                          ? 'Revoking...'
+                          : 'Revoke'}
                       </Button>
                     ) : (
                       <Button

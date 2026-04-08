@@ -2,6 +2,8 @@
 
 A production-ready agentic SaaS template where your customers sign up, connect their integrations, and an AI agent works for them continuously. Built with Next.js, ChatBotKit SDK, next-auth, Stripe, and shadcn/ui.
 
+> **Note:** This template is deliberately bare-bones. It provides the minimal structure and wiring needed to get a working app, intentionally leaving styling, layout, and architectural choices open so you can build on top without fighting existing opinions.
+
 ## Why ChatBotKit?
 
 Building an AI-powered product typically means sourcing models, a conversation layer, background processing, storage, a tested abilities catalogue, authentication, security, monitoring, and more from separate systems. The cost adds up fast - not just in money, but in engineering time.
@@ -89,6 +91,40 @@ npm run dev
 | `STRIPE_TRIAL_DAYS`     | No       | Trial period in days (default: 14)                          |
 | `STRIPE_WEBHOOK_SECRET` | No       | Stripe webhook signing secret                               |
 | `BILLING_REQUIRED`      | No       | Set to `true` to block access when Stripe is not configured |
+
+### Setting Up ChatBotKit
+
+1. Sign up or log in at [chatbotkit.com](https://chatbotkit.com)
+2. Go to [chatbotkit.com/tokens](https://chatbotkit.com/tokens) and create an API token
+3. Create a new bot and configure it with:
+   - A **backstory** describing the agent's role and behavior
+   - A **skillset** with the abilities your agent needs (e.g., Gmail, Google Calendar, Slack)
+   - Any **datasets** for grounding the agent's knowledge
+4. Copy the API token to `CHATBOTKIT_API_SECRET` and the bot ID to `CHATBOTKIT_BOT_ID` in your `.env` file
+
+The app auto-discovers which connections (personal secrets) the bot's abilities require and prompts each user to authenticate them.
+
+### Getting Google OAuth Credentials
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/apis/credentials)
+2. Create a new OAuth 2.0 Client ID
+3. Set authorized redirect URI to `http://localhost:3000/api/auth/callback/google`
+4. Copy the Client ID and Client Secret to your `.env` file
+
+### Generating a NextAuth Secret
+
+Run the following command and paste the output into your `.env` file:
+
+```bash
+openssl rand -base64 32
+```
+
+### Stripe Setup (Optional)
+
+1. Create a [Stripe](https://stripe.com) account and get your secret key from the dashboard
+2. Create monthly and yearly price objects in Stripe and copy their IDs
+3. Set up a webhook endpoint at `https://your-domain.com/api/stripe/webhook` listening for `checkout.session.completed`, `customer.subscription.updated`, and `customer.subscription.deleted` events
+4. Copy the webhook signing secret to `STRIPE_WEBHOOK_SECRET`
 
 ## How It Works
 

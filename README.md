@@ -81,7 +81,7 @@ npm run dev
 
 | Variable                | Required | Description                                                 |
 | ----------------------- | -------- | ----------------------------------------------------------- |
-| `CHATBOTKIT_API_SECRET` | Yes      | API token from chatbotkit.com/tokens                        |
+| `CHATBOTKIT_API_TOKEN` | Yes      | API token from chatbotkit.com/tokens                        |
 | `CHATBOTKIT_BOT_ID`     | Yes      | The bot ID that powers your agent                           |
 | `NEXTAUTH_SECRET`       | Yes      | Random string for session encryption                        |
 | `NEXTAUTH_URL`          | Yes      | App URL (e.g., `http://localhost:3000`)                     |
@@ -102,7 +102,7 @@ npm run dev
    - A **backstory** describing the agent's role and behavior
    - A **skillset** with the abilities your agent needs (e.g., Gmail, Google Calendar, Slack)
    - Any **datasets** for grounding the agent's knowledge
-4. Copy the API token to `CHATBOTKIT_API_SECRET` and the bot ID to `CHATBOTKIT_BOT_ID` in your `.env` file
+4. Copy the API token to `CHATBOTKIT_API_TOKEN` and the bot ID to `CHATBOTKIT_BOT_ID` in your `.env` file
 
 The app auto-discovers which connections (personal secrets) the bot's abilities require and prompts each user to authenticate them.
 

@@ -56,7 +56,7 @@ export default async function ConnectionsPage() {
               </CardHeader>
               <CardContent className="text-sm">
                 <p>
-                  Make sure <code>CHATBOTKIT_API_SECRET</code> and{' '}
+                  Make sure <code>CHATBOTKIT_API_TOKEN</code> and{' '}
                   <code>CHATBOTKIT_BOT_ID</code> are set in your environment
                   variables.
                 </p>
